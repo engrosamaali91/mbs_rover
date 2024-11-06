@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rover_platform">
+
+    <!-- Add rover_platform Robot Platform -->
+    <xacro:include filename="rover_platform/rover_platform.xacro" />
+
+    <!-- Add Accessories -->
+    <!-- <xacro:include filename="accessories.urdf.xacro" />      -->
+    
+</robot>
