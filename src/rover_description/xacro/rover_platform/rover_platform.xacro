@@ -101,7 +101,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <!-- <mesh filename="package://argo_description/meshes/argo_platform/visuals/chassis.stl" /> -->
+                <!-- <mesh filename="package://rover_description/meshes/rover_platform/visuals/chassis.stl" /> -->
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}" />
             </geometry>
             <material name="black">
@@ -111,9 +111,59 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <!-- <mesh filename="package://argo_description/meshes/argo_platform/visuals/chassis-collision.stl" /> -->
+                <!-- <mesh filename="package://rover_description/meshes/rover_platform/visuals/chassis-collision.stl" /> -->
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}" />
             </geometry>
         </collision>
     </link>
+
+    <link name="imu_link"></link>
+    <joint name="imu_link_joint" type="fixed">
+        <origin xyz="$(optenv ROVER_IMU_XYZ 0 0 0)" rpy="$(optenv ROVER_IMU_RPY 0 0 0)" />
+        <parent link="chassis_link" />
+        <child link="imu_link" />
+    </joint>
+
+
+    <!-- Wheel Macro -->
+    <xacro:macro name="wheel" params="prefix side x y">
+        <link name="${prefix}_${side}_wheel_link">
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="${wheel_mass}" />
+                <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 ${PI/2}" />
+                <geometry>
+                    <!-- <cylinder radius="${wheel_radius}" length="${wheel_width}" /> -->
+                    <mesh 
+                        filename="package://rover_description/meshes/rover_platform/visuals/wheel.stl" />
+                </geometry>
+                <material name="dark_grey">
+                    <color rgba="0.2 0.2 0.2 1.0" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 ${PI/2}" />
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_width}" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}_${side}_wheel_joint" type="continuous">
+            <parent link="chassis_link" />
+            <child link="${prefix}_${side}_wheel_link" />
+            <origin xyz="${x} ${y} -0.05" rpy="0 0 0" />
+            <axis xyz="0 1 0" />
+        </joint>
+    </xacro:macro>
+
+    <!-- Adding Four Wheels -->
+    <xacro:wheel prefix="front" side="left" x="0.5" y="0.5" />
+    <xacro:wheel prefix="front" side="right" x="0.5" y="-0.5" />
+    <xacro:wheel prefix="rear" side="left" x="-0.5" y="0.5" />
+    <xacro:wheel prefix="rear" side="right" x="-0.5" y="-0.5" />
+
+
 </robot>

@@ -34,7 +34,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(DIRECTORY launch xacro config
+install(DIRECTORY launch meshes xacro config
   DESTINATION share/${PROJECT_NAME}
 )
 
