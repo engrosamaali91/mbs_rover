@@ -99,20 +99,20 @@
                 y="${chassis_width}" z="${chassis_height}" />
         </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 -0.1" rpy="0 0 0" />
             <geometry>
-                <!-- <mesh filename="package://rover_description/meshes/rover_platform/visuals/chassis.stl" /> -->
-                <box size="${chassis_length} ${chassis_width} ${chassis_height}" />
+                <mesh filename="package://rover_description/meshes/rover_platform/visuals/chassis.stl" />
+                <!-- <box size="${chassis_length} ${chassis_width} ${chassis_height}" /> -->
             </geometry>
-            <material name="black">
+            <material name="yellow">
                 <color rgba="0.15 0.15 0.15 1.0" />
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 -0.1" rpy="0 0 0" />
             <geometry>
-                <!-- <mesh filename="package://rover_description/meshes/rover_platform/visuals/chassis-collision.stl" /> -->
-                <box size="${chassis_length} ${chassis_width} ${chassis_height}" />
+                <mesh filename="package://rover_description/meshes/rover_platform/visuals/chassis-collision.stl" />
+                <!-- <box size="${chassis_length} ${chassis_width} ${chassis_height}" /> -->
             </geometry>
         </collision>
     </link>
