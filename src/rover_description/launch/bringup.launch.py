@@ -25,7 +25,13 @@ def generate_launch_description():
         output="screen",
         parameters=[robot_description],
     )
-
+    node_joint_state_publisher = Node(
+        package="joint_state_publisher",
+        executable="joint_state_publisher",
+        # namespace="rover",
+        output="screen",
+        parameters=[robot_description],
+    )
     # Launch Joint State Publisher GUI
     node_joint_state_publisher_gui = Node(
         package="joint_state_publisher_gui",
