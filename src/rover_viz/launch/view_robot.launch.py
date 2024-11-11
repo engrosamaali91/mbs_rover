@@ -34,6 +34,7 @@ def generate_launch_description():
     ])
 
     ld = LaunchDescription()
+    
     ld.add_action(arg_namespace)
     ld.add_action(node_rviz)
 

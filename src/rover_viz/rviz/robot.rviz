@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Robot1
         - /Robot1/TF1/Frames1
+        - /Sensors1
       Splitter Ratio: 0.5
     Tree Height: 679
   - Class: rviz_common/Selection
@@ -26,7 +27,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: HokuyoScan
 Visualization Manager:
   Class: ""
   Displays:
@@ -64,9 +65,9 @@ Visualization Manager:
             All Enabled: true
             base_link:
               Value: true
-            chassis_link:
+            camera_link:
               Value: true
-            diff_link:
+            chassis_link:
               Value: true
             front_left_wheel_link:
               Value: true
@@ -74,35 +75,13 @@ Visualization Manager:
               Value: true
             imu_link:
               Value: true
-            left_diff_unit_antenna_link:
-              Value: true
-            left_diff_unit_buttons_link:
-              Value: true
-            left_diff_unit_headlight_link:
-              Value: true
-            left_diff_unit_link:
-              Value: true
-            left_diff_unit_taillight_link:
+            laser_link:
               Value: true
             odom:
               Value: true
             rear_left_wheel_link:
               Value: true
             rear_right_wheel_link:
-              Value: true
-            right_diff_unit_antenna_link:
-              Value: true
-            right_diff_unit_buttons_link:
-              Value: true
-            right_diff_unit_estop_antenna_link:
-              Value: true
-            right_diff_unit_headlight_link:
-              Value: true
-            right_diff_unit_link:
-              Value: true
-            right_diff_unit_taillight_link:
-              Value: true
-            top_chassis_link:
               Value: true
           Marker Scale: 0.5
           Name: TF
@@ -113,39 +92,19 @@ Visualization Manager:
             odom:
               base_link:
                 chassis_link:
-                  diff_link:
+                  camera_link:
+                    {}
+                  front_left_wheel_link:
+                    {}
+                  front_right_wheel_link:
                     {}
                   imu_link:
                     {}
-                  left_diff_unit_link:
-                    front_left_wheel_link:
-                      {}
-                    left_diff_unit_antenna_link:
-                      {}
-                    left_diff_unit_buttons_link:
-                      {}
-                    left_diff_unit_headlight_link:
-                      {}
-                    left_diff_unit_taillight_link:
-                      {}
-                    rear_left_wheel_link:
-                      {}
-                  right_diff_unit_link:
-                    front_right_wheel_link:
-                      {}
-                    rear_right_wheel_link:
-                      {}
-                    right_diff_unit_antenna_link:
-                      {}
-                    right_diff_unit_buttons_link:
-                      {}
-                    right_diff_unit_estop_antenna_link:
-                      {}
-                    right_diff_unit_headlight_link:
-                      {}
-                    right_diff_unit_taillight_link:
-                      {}
-                  top_chassis_link:
+                  laser_link:
+                    {}
+                  rear_left_wheel_link:
+                    {}
+                  rear_right_wheel_link:
                     {}
           Update Interval: 0
           Value: true
@@ -171,12 +130,12 @@ Visualization Manager:
               Alpha: 1
               Show Axes: false
               Show Trail: false
-            chassis_link:
+            camera_link:
               Alpha: 1
               Show Axes: false
               Show Trail: false
               Value: true
-            diff_link:
+            chassis_link:
               Alpha: 1
               Show Axes: false
               Show Trail: false
@@ -195,27 +154,7 @@ Visualization Manager:
               Alpha: 1
               Show Axes: false
               Show Trail: false
-            left_diff_unit_antenna_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            left_diff_unit_buttons_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            left_diff_unit_headlight_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            left_diff_unit_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            left_diff_unit_taillight_link:
+            laser_link:
               Alpha: 1
               Show Axes: false
               Show Trail: false
@@ -230,40 +169,6 @@ Visualization Manager:
               Show Axes: false
               Show Trail: false
               Value: true
-            right_diff_unit_antenna_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            right_diff_unit_buttons_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            right_diff_unit_estop_antenna_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            right_diff_unit_headlight_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            right_diff_unit_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            right_diff_unit_taillight_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            top_chassis_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
           Mass Properties:
             Inertia: false
             Mass: false
@@ -279,8 +184,8 @@ Visualization Manager:
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 5.821016788482666
-            Min Value: -2.6306354999542236
+            Max Value: 3.9360666275024414
+            Min Value: -0.4972129166126251
             Value: true
           Axis: X
           Channel Name: intensity
@@ -288,7 +193,7 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: AxisColor
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 4096
@@ -306,11 +211,11 @@ Visualization Manager:
             Filter size: 10
             History Policy: Keep Last
             Reliability Policy: Reliable
-            Value: /mmp_0001/scan
+            Value: /scan
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
-      Enabled: false
+          Value: true
+      Enabled: true
       Name: Sensors
     - Class: rviz_common/Group
       Displays:
