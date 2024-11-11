@@ -13,7 +13,7 @@
     <xacro:property name="wheel_to_track_ratio" value="0.5962" />
 
     <xacro:property name="axle_x_offset" value="0.457367" />
-    <xacro:property name="axle_y_offset" value="0.0" />
+    <xacro:property name="axle_y_offset" value="0.5" />
     <xacro:property name="axle_z_offset" value="-0.012977" />
 
     <xacro:property name="diff_unit_length" value="1.34" />
@@ -28,7 +28,7 @@
     <xacro:property name="chassis_length" value="1.35" />
     <xacro:property name="chassis_width" value="0.70" />
     <xacro:property name="chassis_height" value="0.30" />
-    <xacro:property name="chassis_mass" value="100" />
+    <xacro:property name="chassis_mass" value="50" />
 
     <xacro:property name="dummy_inertia" value="1e-09" />
 
@@ -134,7 +134,7 @@
                 <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
             </inertial>
             <visual>
-                <origin xyz="0 0 0" rpy="0 0 ${PI/2}" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <!-- <cylinder radius="${wheel_radius}" length="${wheel_width}" /> -->
                     <mesh 
@@ -145,7 +145,7 @@
                 </material>
             </visual>
             <collision>
-                <origin xyz="0 0 0" rpy="0 0 ${PI/2}" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <!-- <cylinder radius="${wheel_radius}" length="${wheel_width}" /> -->
                     <mesh filename="package://rover_description/meshes/rover_platform/visuals/wheel.stl" />
@@ -161,10 +161,10 @@
     </xacro:macro>
 
     <!-- Adding Four Wheels -->
-    <xacro:wheel prefix="front" side="left" x="0.5" y="0.5" />
-    <xacro:wheel prefix="front" side="right" x="0.5" y="-0.5" />
-    <xacro:wheel prefix="rear" side="left" x="-0.5" y="0.5" />
-    <xacro:wheel prefix="rear" side="right" x="-0.5" y="-0.5" />
+    <xacro:wheel prefix="front" side="left" x="${axle_x_offset}" y="${axle_y_offset}" />
+    <xacro:wheel prefix="front" side="right" x="${axle_x_offset}" y="${axle_y_offset*-1}" />
+    <xacro:wheel prefix="rear" side="left" x="${axle_x_offset*-1}" y="${axle_y_offset}" />
+    <xacro:wheel prefix="rear" side="right" x="${axle_x_offset*-1}" y="${axle_y_offset*-1}" />
 
 
 </robot>

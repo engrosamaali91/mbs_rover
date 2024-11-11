@@ -4,6 +4,9 @@
 - [Simulation](#simulation)
   - [Install Gazebo Fortress](#install-gazebo-fortress)
   - [Operation](#operation)
+    - [RViz2](#rviz2)
+    - [Teleop](#teleop)
+    - [Fortress Simulation](#fortress-simulation)
 
 
 ![Robot design](assets/robot_design.gif)
@@ -24,6 +27,21 @@ xacro robot.xacro > argo.urdf
 ```
 
 ## Operation
+
+### RViz2
+
+```bash
+ros2 launch rover_viz view_robot.launch.py
+```
+
+
+### Teleop
+
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard 
+```
+
+### Fortress Simulation
 
 
 ```bash
