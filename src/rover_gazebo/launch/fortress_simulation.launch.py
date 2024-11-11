@@ -38,7 +38,7 @@ def generate_launch_description():
     # Gazebo Configuration
     spawn_x_val = '0.0'
     spawn_y_val = '0.0'
-    spawn_z_val = '0.6'
+    spawn_z_val = '1.5'
     spawn_yaw_val = '0.00'
 
     # Nodes
@@ -120,7 +120,7 @@ def generate_launch_description():
     ld.add_action(node_gazebo_robot_spawn)
     ld.add_action(node_robot_state_publisher)
     # ld.add_action(node_joint_state_publisher)
-    ld.add_action(node_diff_drive_spawner)
-    ld.add_action(node_tilt_unit_spawner)
+    # ld.add_action(node_diff_drive_spawner)
+    # ld.add_action(node_tilt_unit_spawner)
 
     return ld
