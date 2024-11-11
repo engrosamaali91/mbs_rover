@@ -13,12 +13,17 @@
             <right_joint>front_right_wheel_joint</right_joint>
             <right_joint>rear_right_wheel_joint</right_joint>
 
-            <wheel_radius>0.305</wheel_radius>
+            <wheel_radius>0.3045</wheel_radius>
             <wheel_separation>1.386</wheel_separation>
+            
             <max_linear_acceleration>1.0</max_linear_acceleration>
+            <max_angular_acceleration>1.0</max_angular_acceleration>
+
+            <max_wheel_torque>10.0</max_wheel_torque>
 
             <!-- Input -->
             <topic>cmd_vel</topic>
+            
 
             <!-- Output -->
             <frame_id>odom</frame_id>
