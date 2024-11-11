@@ -91,6 +91,7 @@ def generate_launch_description():
                     {'use_sim_time': True},
                     ],
     )
+    
     node_joint_state_publisher = Node(
         package="controller_manager",
         executable="spawner",
@@ -120,7 +121,7 @@ def generate_launch_description():
     ld.add_action(node_gazebo_robot_spawn)
     ld.add_action(node_robot_state_publisher)
     # ld.add_action(node_joint_state_publisher)
-    # ld.add_action(node_diff_drive_spawner)
+    ld.add_action(node_diff_drive_spawner)
     # ld.add_action(node_tilt_unit_spawner)
 
     return ld
