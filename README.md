@@ -23,7 +23,7 @@ sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 
 Convert xacro to urdf 
 ```bash
-xacro robot.xacro > argo.urdf 
+xacro robot.xacro > rover.urdf 
 ```
 
 ## Operation
