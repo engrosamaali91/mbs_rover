@@ -30,6 +30,7 @@ def generate_launch_description():
                 ('/tf', 'tf'),
                 ('/tf_static', 'tf_static')
              ],
+             parameters=[{'use_sim_time': True}],
              output='screen')
     ])
 
