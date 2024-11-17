@@ -43,7 +43,7 @@ def generate_launch_description():
 
     lifecycle_nodes = ['map_server', 'amcl']
 
-    remappings = [('/tf', '/a200_1045/tf'),('/tf_static', '/a200_1045/tf_static')]
+    remappings = [('/tf', '/tf'),('/tf_static', '/tf_static')]
 
     # Create our own temporary YAML files that include substitutions
     param_substitutions = {

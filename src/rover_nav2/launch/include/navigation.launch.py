@@ -48,8 +48,8 @@ def generate_launch_description():
                        'waypoint_follower',
                        'velocity_smoother']
 
-    remappings = [('/tf', '/a200_1045/tf'),
-                  ('/tf_static', '/a200_1045/tf_static')]
+    remappings = [('/tf', '/tf'),
+                  ('/tf_static', '/tf_static')]
 
     # Create our own temporary YAML files that include substitutions
     param_substitutions = {
@@ -174,7 +174,7 @@ def generate_launch_description():
                 parameters=[configured_params],
                 arguments=['--ros-args', '--log-level', log_level],
                 remappings=remappings +
-                        [('cmd_vel', 'cmd_vel_nav'), ('cmd_vel_smoothed', '/a200_1045/cmd_vel')]),
+                        [('cmd_vel', 'cmd_vel_nav'), ('cmd_vel_smoothed', '/cmd_vel')]),
             Node(
                 package='nav2_lifecycle_manager',
                 executable='lifecycle_manager',
@@ -233,7 +233,7 @@ def generate_launch_description():
                 name='velocity_smoother',
                 parameters=[configured_params],
                 remappings=remappings +
-                           [('cmd_vel', 'cmd_vel_nav'), ('cmd_vel_smoothed', '/a200_1045/cmd_vel')]),
+                           [('cmd_vel', 'cmd_vel_nav'), ('cmd_vel_smoothed', '/cmd_vel')]),
             ComposableNode(
                 package='nav2_lifecycle_manager',
                 plugin='nav2_lifecycle_manager::LifecycleManager',

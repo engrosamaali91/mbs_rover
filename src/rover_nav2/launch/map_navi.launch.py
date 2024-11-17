@@ -49,8 +49,8 @@ def generate_launch_description():
     use_respawn = LaunchConfiguration('use_respawn')
     log_level = LaunchConfiguration('log_level')
 
-    remappings = [('/tf', '/a200_1045/tf'),
-                  ('/tf_static', '/a200_1045/tf_static')]
+    remappings = [('/tf', '/tf'),
+                  ('/tf_static', '/tf_static')]
 
     # Only it applys when `use_namespace` is True.
     # '<robot_namespace>' keyword shall be replaced by 'namespace' launch argument
