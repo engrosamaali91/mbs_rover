@@ -48,5 +48,13 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ros2 launch rover_gazebo fortress_simulation.launch.py
 ```
 
-
 ### Nav2
+```bash
+ros2 launch rover_nav2 odom_navi.launch.py
+```
+
+### Autonomous Navigation
+
+```bash
+ros2 launch rover_nav2 map_navi.launch.py
+```
