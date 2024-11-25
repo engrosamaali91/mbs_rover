@@ -22,7 +22,7 @@
         <mu2>0.2</mu2>
     </gazebo>
 
-       <gazebo>
+    <gazebo>
         <plugin name="gz::sim::systems::DiffDrive" filename="gz-sim-diff-drive-system">
             <left_joint>front_left_wheel_joint</left_joint>
             <left_joint>rear_left_wheel_joint</left_joint>
