@@ -22,7 +22,7 @@ def generate_launch_description():
     
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     world_file = PathJoinSubstitution(
-        [get_package_share_directory('rover_gazebo'), 'worlds', 'custom_world.world'])
+        [get_package_share_directory('rover_gazebo'), 'worlds', 'fortress-plane.sdf'])
     
     robot_description_content = Command(
         [

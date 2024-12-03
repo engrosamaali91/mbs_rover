@@ -179,4 +179,22 @@
     </gazebo> 
 
 
+    <!-- IMU Link-->
+    <link name="imu_link"></link>
+    <joint name="imu_link_joint" type="fixed">
+        <origin xyz="$(optenv ROVER_IMU_XYZ 0 0 0)" rpy="$(optenv ROVER_IMU_RPY 0 0 0)" />
+        <parent link="chassis_link" />
+        <child link="imu_link" />
+    </joint>
+
+
+    <gazebo reference="imu_link">
+    
+        <sensor name="imu_sensor" type="imu">
+            <always_on>1</always_on>
+            <update_rate>1</update_rate>
+            <visualize>true</visualize>
+            <topic>imu</topic>
+        </sensor>
+    </gazebo>
 </robot>
